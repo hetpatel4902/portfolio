@@ -1,0 +1,272 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #070b10;
+  --bg-elevated: #0d141a;
+  --panel: rgba(15, 23, 30, 0.9);
+  --panel-alt: rgba(17, 24, 31, 0.9);
+  --text: #f4f7fa;
+  --muted: #a6b2bd;
+  --border: rgba(148, 163, 184, 0.18);
+  --accent: #67e8f9;
+  --accent-strong: #a5f3fc;
+  --shadow: rgba(14, 116, 144, 0.12);
+}
+
+html.theme-light {
+  --bg: #eef4f9;
+  --bg-elevated: #f8fafc;
+  --panel: rgba(255, 255, 255, 0.88);
+  --panel-alt: rgba(248, 250, 252, 0.94);
+  --text: #0f172a;
+  --muted: #475569;
+  --border: rgba(15, 23, 42, 0.12);
+  --accent: #0891b2;
+  --accent-strong: #0ea5e9;
+  --shadow: rgba(14, 116, 144, 0.12);
+  --site-header-bg: rgba(255, 255, 255, 0.77);
+  --site-header-border: rgba(15, 23, 42, 0.12);
+  --site-header-text: #0f172a;
+  --site-header-muted: #475569;
+  --site-header-button-bg: rgba(15, 23, 42, 0.04);
+}
+
+html.theme-dark {
+  --site-header-bg: rgba(7, 11, 16, 0.8);
+  --site-header-border: rgba(255, 255, 255, 0.1);
+  --site-header-text: #f4f7fa;
+  --site-header-muted: #a6b2bd;
+  --site-header-button-bg: rgba(255, 255, 255, 0.02);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(103, 232, 249, 0.09), transparent 26%),
+    linear-gradient(180deg, var(--bg) 0%, #0a0f14 100%);
+  color: var(--text);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+}
+
+html.theme-light body {
+  background:
+    radial-gradient(circle at top, rgba(14, 165, 233, 0.1), transparent 28%),
+    linear-gradient(180deg, #f8fafc 0%, #edf4fb 100%);
+}
+
+.page-shell {
+  min-height: 100vh;
+  background-image:
+    linear-gradient(rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-position: center center;
+}
+
+html.theme-light .page-shell {
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.025) 1px, transparent 1px);
+}
+
+::selection {
+  background: rgba(103, 232, 249, 0.28);
+  color: var(--text);
+}
+
+.terminal-window {
+  position: relative;
+  width: min(100%, 32rem);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  background: rgba(11, 17, 22, 0.9);
+  box-shadow: 0 20px 45px rgba(5, 10, 14, 0.38);
+  padding: 1.2rem 1.1rem 1.4rem;
+}
+
+html.theme-light .terminal-window {
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+.terminal-window::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(103, 232, 249, 0.05),
+    transparent 30%
+  );
+  pointer-events: none;
+}
+
+html.theme-light .terminal-window::before {
+  background: linear-gradient(
+    135deg,
+    rgba(14, 165, 233, 0.08),
+    transparent 30%
+  );
+}
+
+.terminal-line {
+  display: flex;
+  align-items: center;
+  min-height: 1.35rem;
+}
+
+html.theme-light .bg-zinc-950\/40,
+html.theme-light .bg-zinc-900,
+html.theme-light .bg-zinc-900\/70,
+html.theme-light .bg-zinc-950\/70,
+html.theme-light .bg-white\/\[0\.02\],
+html.theme-light .bg-slate-900,
+html.theme-light .bg-slate-950 {
+  background-color: rgba(255, 255, 255, 0.8) !important;
+}
+
+html.theme-light .border-white\/10,
+html.theme-light .border-white\/20,
+html.theme-light .border-sky-400\/40,
+html.theme-light .border-sky-300\/60 {
+  border-color: rgba(15, 23, 42, 0.12) !important;
+}
+
+html.theme-light .text-zinc-50,
+html.theme-light .text-zinc-100,
+html.theme-light .text-zinc-200,
+html.theme-light .text-zinc-300,
+html.theme-light .text-zinc-400,
+html.theme-light .text-zinc-500,
+html.theme-light .text-zinc-600 {
+  color: var(--text) !important;
+}
+
+html.theme-light .text-zinc-300 {
+  color: #334155 !important;
+}
+
+html.theme-light .text-zinc-400,
+html.theme-light .text-zinc-500 {
+  color: #64748b !important;
+}
+
+.site-header {
+  background-color: var(--site-header-bg);
+  border-color: var(--site-header-border);
+}
+
+.site-header-brand,
+.site-header-link,
+.site-header-button,
+.site-header-button-icon {
+  color: var(--site-header-text);
+}
+
+.site-header-link {
+  color: var(--site-header-muted);
+}
+
+.site-header-link:hover {
+  color: var(--site-header-text);
+}
+
+.site-header-button {
+  background-color: var(--site-header-button-bg);
+  border-color: var(--site-header-border);
+}
+
+.avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  object-fit: cover;
+  border: 1px solid var(--site-header-border);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.02));
+}
+
+html.theme-light .avatar {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.4)
+  );
+}
+
+html.theme-light .text-sky-100,
+html.theme-light .text-sky-200,
+html.theme-light .text-sky-300,
+html.theme-light .text-sky-300\/80 {
+  color: var(--accent) !important;
+}
+
+html.theme-light .profile-pill-group {
+  color: var(--text);
+}
+
+html.theme-light .profile-pill {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: var(--border);
+  color: var(--text);
+}
+
+html.theme-light .profile-copy,
+html.theme-light .profile-copy p,
+html.theme-light .profile-panel,
+html.theme-light .profile-panel p,
+html.theme-light .profile-panel li,
+html.theme-light .profile-panel span,
+html.theme-light .profile-panel ul {
+  color: #334155 !important;
+}
+
+html.theme-light .profile-panel {
+  background: rgba(255, 255, 255, 0.72);
+  border-color: var(--border);
+}
+
+html.theme-light .bg-sky-400\/10,
+html.theme-light .bg-sky-400\/15 {
+  background-color: rgba(14, 165, 233, 0.08) !important;
+}
+
+html.theme-light .hover\:border-sky-300\/50:hover,
+html.theme-light .hover\:border-sky-200\/60:hover,
+html.theme-light .hover\:border-sky-400\/40:hover {
+  border-color: rgba(14, 165, 233, 0.35) !important;
+}
+
+html.theme-light .hover\:text-zinc-100:hover {
+  color: #0f172a !important;
+}
+
+html.theme-light .text-sky-200 {
+  color: #0f766e !important;
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    background-size: 24px 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
