@@ -1,7 +1,7 @@
 export const profile = {
   name: "Het Patel",
   title: "Software Engineer",
-  positioning: "SYSTEMS × DATA × AI",
+  positioning: "SOFTWARE × CLOUD × AI",
   heroStatement:
     "I build software systems that turn complex workflows into something people can actually use.",
   engineerSummary:
