@@ -57,28 +57,6 @@ export const projects: Project[] = [
     projectType: "Production app",
   },
   {
-    id: "food-delivery-platform",
-    name: "Food Delivery Platform",
-    oneLiner:
-      "A multi-role delivery ecosystem connecting users, restaurant partners, and delivery partners in a unified mobile-first workflow.",
-    problem:
-      "Modern food delivery platforms need role-aware experiences, ordering flows, order lifecycle coordination, and user trust across multiple actors.",
-    architecture:
-      "The solution is built as a set of role-specific React Native applications backed by cloud services and shared business logic for orders, status updates, and partner operations.",
-    engineering:
-      "The platform emphasizes the mobile experience and the business processes behind it: order placement, restaurant operations, fulfillment tracking, and the communication layer between participants.",
-    impact:
-      "It demonstrates a practical full-stack product pattern for multi-role systems where user flows, vendor workflows, and fulfillment operations must stay synchronized.",
-    technologies: [
-      "React Native",
-      "Cloud Services",
-      "Mobile App Architecture",
-      "API Workflows",
-    ],
-    link: "https://github.com/hetpatel4902/food-delivery-platform",
-    projectType: "Mobile & platform product",
-  },
-  {
     id: "sachivalay-canteen",
     name: "Sachivalay Canteen",
     oneLiner:

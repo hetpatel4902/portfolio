@@ -12,6 +12,7 @@ import {
 
 import { ExperienceCard } from "@/components/experience-card";
 import { ProjectCard } from "@/components/project-card";
+import { ProjectCaseStudy } from "@/components/project-case-study";
 import { SectionHeading } from "@/components/section-heading";
 import { SiteHeader } from "@/components/site-header";
 import { TerminalWindow } from "@/components/terminal-window";
@@ -21,7 +22,6 @@ import { projects } from "@/data/projects";
 import { skillGroups } from "@/data/skills";
 
 const reveal = {
-  // Do not hide sections by default on the server — only animate when in view.
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, amount: 0.2 },
   transition: { duration: 0.55, ease: [0.22, 1, 0.36, 1] as const },
@@ -214,9 +214,17 @@ export default function Home() {
             title="Case studies in architecture, workflows, and software delivery."
           />
           <div className="mt-10 space-y-6">
-            {projects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
+            {projects.map((project) =>
+              [
+                "ai-performance-platform",
+                "imaze",
+                "sachivalay-canteen",
+              ].includes(project.id) ? (
+                <ProjectCaseStudy key={project.id} project={project} />
+              ) : (
+                <ProjectCard key={project.id} project={project} />
+              ),
+            )}
           </div>
         </motion.section>
 

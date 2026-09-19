@@ -1,27 +1,91 @@
+import Image from "next/image";
 import type { ExperienceEntry } from "@/data/experience";
+
+const companyLogos: Record<
+  string,
+  { label: string; src: string; className: string }
+> = {
+  "TATA CONSULTANCY SERVICES": {
+    label: "TCS",
+    src: "/images/logos/tcs.png",
+    className: "border-white/15 bg-white",
+  },
+  TATVASOFT: {
+    label: "TV",
+    src: "/images/logos/tatvasoft.png",
+    className: "border-white/15 bg-white",
+  },
+  "THE KARMIC UNIVERSE": {
+    label: "KU",
+    src: "/images/logos/karmic-universe.jpg",
+    className: "border-white/15 bg-white",
+  },
+};
+
+function CompanyLogo({ name }: { name: string }) {
+  const logo = companyLogos[name];
+  const fallbackLabel =
+    logo?.label ??
+    name
+      .split(/[\s/&]+/)
+      .filter(Boolean)
+      .slice(0, 2)
+      .map((word) => word[0])
+      .join("")
+      .toUpperCase();
+
+  return (
+    <span
+      aria-hidden="true"
+      className={`flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded border ${
+        logo?.className ?? "border-white/15 bg-white/[0.04]"
+      }`}
+    >
+      {logo ? (
+        <Image
+          src={logo.src}
+          alt=""
+          width={44}
+          height={44}
+          className="h-full w-full object-contain p-1"
+          loading="lazy"
+        />
+      ) : (
+        <span className="font-mono text-[0.68rem] font-semibold uppercase text-zinc-100">
+          {fallbackLabel}
+        </span>
+      )}
+    </span>
+  );
+}
 
 export function ExperienceCard({ item }: { item: ExperienceEntry }) {
   return (
-    <article className="rounded border border-white/10 bg-zinc-950/40 p-6 sm:p-8">
-      <div className="mb-6 flex flex-col gap-3 border-b border-white/10 pb-4 sm:flex-row sm:items-end sm:justify-between">
-        <div>
-          <p className="font-mono text-[0.68rem] uppercase tracking-[0.32em] text-sky-300/80">
-            {item.period}
+    <details className="group rounded border border-white/10 bg-zinc-950/40 p-6 sm:p-8">
+      <summary className="mb-4 cursor-pointer list-none">
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p className="font-mono text-[0.68rem] uppercase tracking-[0.32em] text-sky-300/80">
+              {item.period}
+            </p>
+            <div className="mt-3 flex items-center gap-3">
+              <CompanyLogo name={item.company} />
+              <h3 className="text-2xl font-semibold tracking-[-0.05em] text-zinc-50">
+                {item.company}
+              </h3>
+            </div>
+          </div>
+          <p className="font-mono text-sm uppercase tracking-[0.2em] text-zinc-400">
+            {item.role}
           </p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-[-0.05em] text-zinc-50">
-            {item.company}
-          </h3>
         </div>
-        <p className="font-mono text-sm uppercase tracking-[0.2em] text-zinc-400">
-          {item.role}
+
+        <p className="mt-4 max-w-2xl text-base leading-7 text-zinc-300">
+          {item.summary}
         </p>
-      </div>
+      </summary>
 
-      <p className="max-w-2xl text-base leading-7 text-zinc-300">
-        {item.summary}
-      </p>
-
-      <div className="mt-8 grid gap-5 lg:grid-cols-2">
+      <div className="mt-4 grid gap-5 lg:grid-cols-2">
         {item.projects.map((project) => (
           <div
             key={`${item.company}-${project.name}`}
@@ -50,28 +114,34 @@ export function ExperienceCard({ item }: { item: ExperienceEntry }) {
             </ul>
 
             <dl className="mt-5 space-y-4 text-sm leading-6 text-zinc-300">
-              <div>
-                <dt className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-zinc-500">
-                  What I built
-                </dt>
-                <dd className="mt-1">{project.whatBuilt}</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-zinc-500">
-                  Engineering problem
-                </dt>
-                <dd className="mt-1">{project.engineeringProblem}</dd>
-              </div>
-              <div>
-                <dt className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-zinc-500">
-                  Impact
-                </dt>
-                <dd className="mt-1">{project.impact}</dd>
-              </div>
+              {project.whatBuilt && (
+                <div>
+                  <dt className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-zinc-500">
+                    What I built
+                  </dt>
+                  <dd className="mt-1">{project.whatBuilt}</dd>
+                </div>
+              )}
+              {project.engineeringProblem && (
+                <div>
+                  <dt className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-zinc-500">
+                    Engineering problem
+                  </dt>
+                  <dd className="mt-1">{project.engineeringProblem}</dd>
+                </div>
+              )}
+              {project.impact && (
+                <div>
+                  <dt className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-zinc-500">
+                    Impact
+                  </dt>
+                  <dd className="mt-1">{project.impact}</dd>
+                </div>
+              )}
             </dl>
           </div>
         ))}
       </div>
-    </article>
+    </details>
   );
 }

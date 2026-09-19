@@ -20,11 +20,9 @@ export function ProjectCard({ project }: { project: Project }) {
             0
             {project.id === "ai-performance-platform"
               ? 1
-              : project.id === "food-delivery-platform"
+              : project.id === "sachivalay-canteen"
                 ? 2
-                : project.id === "sachivalay-canteen"
-                  ? 3
-                  : 4}
+                : 3}
           </span>
         </div>
 

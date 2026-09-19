@@ -18,7 +18,5 @@ export const profile = {
   linkedIn: "https://www.linkedin.com/in/het-patel-462236201",
   email: "hetvrunda@gmail.com",
   resumeHref: "/Het-Patel-Resume.pdf",
-  // Path to profile image in the public folder. Replace with your photo at
-  // `public/images/profile.jpg` (or update this path).
   image: "/images/profile.jpg",
 };
