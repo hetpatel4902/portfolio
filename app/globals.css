@@ -43,6 +43,7 @@ html.theme-dark {
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -51,6 +52,21 @@ body {
     linear-gradient(180deg, var(--bg) 0%, #0a0f14 100%);
   color: var(--text);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  min-width: 320px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+a,
+li,
+dd,
+dt,
+span {
+  overflow-wrap: break-word;
 }
 
 html.theme-light body {
@@ -82,6 +98,7 @@ html.theme-light .page-shell {
 .terminal-window {
   position: relative;
   width: min(100%, 32rem);
+  max-width: 100%;
   border: 1px solid var(--border);
   border-radius: 1rem;
   background: rgba(11, 17, 22, 0.9);
@@ -253,6 +270,11 @@ html.theme-light .text-sky-200 {
 @media (max-width: 640px) {
   .page-shell {
     background-size: 24px 24px;
+  }
+
+  .terminal-window {
+    padding: 1rem;
+    border-radius: 0.75rem;
   }
 }
 

@@ -66,13 +66,13 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
   }, [project.id]);
 
   return (
-    <article className="group rounded border border-white/10 bg-zinc-950/40 p-6 sm:p-8">
+    <article className="group min-w-0 rounded border border-white/10 bg-zinc-950/40 p-5 sm:p-8">
       <div className="grid gap-6">
-        <div>
-          <p className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-sky-300/80">
+        <div className="min-w-0">
+          <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-sky-300/80 sm:text-[0.68rem] sm:tracking-[0.28em]">
             {project.projectType}
           </p>
-          <h3 className="mt-3 text-2xl font-semibold tracking-[-0.05em] text-zinc-50">
+          <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-zinc-50 sm:text-2xl sm:tracking-[-0.05em]">
             {project.name}
           </h3>
 
@@ -80,7 +80,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
 
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             <div>
-              <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-zinc-500">
+              <p className="font-mono text-[0.62rem] uppercase tracking-[0.12em] text-zinc-500 sm:tracking-[0.18em]">
                 Problem
               </p>
               <p className="mt-2 text-sm leading-6 text-zinc-300">
@@ -88,7 +88,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
               </p>
             </div>
             <div>
-              <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-zinc-500">
+              <p className="font-mono text-[0.62rem] uppercase tracking-[0.12em] text-zinc-500 sm:tracking-[0.18em]">
                 Engineering
               </p>
               <p className="mt-2 text-sm leading-6 text-zinc-300">
@@ -98,7 +98,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
           </div>
 
           <div className="mt-6">
-            <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-zinc-500">
+            <p className="font-mono text-[0.62rem] uppercase tracking-[0.12em] text-zinc-500 sm:tracking-[0.18em]">
               Impact
             </p>
             <p className="mt-2 text-sm leading-6 text-zinc-300">
@@ -112,7 +112,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
                 href={project.link}
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 border border-sky-400/40 bg-sky-400/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.18em] text-sky-200 transition-colors hover:border-sky-300/60 hover:bg-sky-400/15"
+                className="inline-flex items-center gap-2 border border-sky-400/40 bg-sky-400/10 px-4 py-2 font-mono text-xs uppercase tracking-[0.12em] text-sky-200 transition-colors hover:border-sky-300/60 hover:bg-sky-400/15 sm:tracking-[0.18em]"
               >
                 View project
               </a>
@@ -124,7 +124,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
               Visuals omitted for this project.
             </div>
           ) : imagesToShow.length > 0 ? (
-            <div className="mt-6 flex gap-3 overflow-x-auto pb-2">
+            <div className="mt-6 flex max-w-full gap-3 overflow-x-auto pb-2">
               {imagesToShow.slice(0, 5).map((src) => (
                 <Image
                   key={src}
@@ -133,7 +133,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
                   width={216}
                   height={384}
                   loading="lazy"
-                  className="h-72 w-auto max-w-none shrink-0 rounded border border-white/6 bg-zinc-900 object-contain sm:h-80 md:h-96"
+                  className="h-64 w-auto max-w-none shrink-0 rounded border border-white/6 bg-zinc-900 object-contain min-[360px]:h-72 sm:h-80 md:h-96"
                 />
               ))}
             </div>
@@ -161,7 +161,7 @@ export function ProjectCaseStudy({ project }: { project: Project }) {
             {project.technologies.map((t) => (
               <span
                 key={t}
-                className="rounded-full border border-white/10 bg-zinc-900 px-2.5 py-1 font-mono text-[0.63rem] uppercase tracking-[0.12em] text-zinc-100"
+                className="rounded-full border border-white/10 bg-zinc-900 px-2.5 py-1 font-mono text-[0.63rem] uppercase tracking-[0.08em] text-zinc-100 sm:tracking-[0.12em]"
               >
                 {t}
               </span>

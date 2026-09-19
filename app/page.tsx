@@ -46,23 +46,23 @@ export default function Home() {
       <main>
         <section
           id="work"
-          className="mx-auto max-w-6xl px-4 pb-16 pt-20 sm:px-6 lg:px-8 lg:pb-24 lg:pt-28"
+          className="mx-auto w-full max-w-6xl px-4 pb-16 pt-16 sm:px-6 sm:pt-20 lg:px-8 lg:pb-24 lg:pt-28"
         >
-          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-            <motion.div {...reveal}>
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.34em] text-sky-300/80">
+          <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-12">
+            <motion.div {...reveal} className="min-w-0">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.2em] text-sky-300/80 sm:text-[0.7rem] sm:tracking-[0.34em]">
                 {profile.positioning}
               </p>
 
-              <h1 className="mt-6 text-5xl font-semibold leading-[0.92] tracking-[-0.07em] text-zinc-50 sm:text-6xl lg:text-7xl">
+              <h1 className="mt-6 text-4xl font-semibold leading-[0.95] tracking-[-0.04em] text-zinc-50 min-[360px]:text-5xl sm:text-6xl sm:tracking-[-0.07em] lg:text-7xl">
                 HET PATEL
               </h1>
 
-              <p className="mt-4 text-lg font-medium uppercase tracking-[0.18em] text-zinc-300 sm:text-xl">
+              <p className="mt-4 text-base font-medium uppercase tracking-[0.12em] text-zinc-300 sm:text-xl sm:tracking-[0.18em]">
                 {profile.title}
               </p>
 
-              <p className="mt-8 max-w-xl text-lg leading-8 text-zinc-300 sm:text-xl">
+              <p className="mt-8 max-w-xl text-base leading-7 text-zinc-300 sm:text-xl sm:leading-8">
                 “{profile.heroStatement}”
               </p>
 
@@ -71,10 +71,10 @@ export default function Home() {
                 Performance
               </p>
 
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                 <a
                   href="#systems"
-                  className="inline-flex items-center justify-center gap-2 border border-sky-400/40 bg-sky-400/10 px-5 py-3 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-sky-100 transition-colors hover:border-sky-300/60 hover:bg-sky-400/15"
+                  className="inline-flex w-full items-center justify-center gap-2 border border-sky-400/40 bg-sky-400/10 px-4 py-3 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-sky-100 transition-colors hover:border-sky-300/60 hover:bg-sky-400/15 sm:w-auto sm:px-5 sm:tracking-[0.2em]"
                 >
                   View selected work
                   <ArrowRight className="h-4 w-4" />
@@ -83,14 +83,14 @@ export default function Home() {
                   href={profile.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center justify-center gap-2 border border-white/10 bg-white/[0.02] px-5 py-3 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-zinc-100 transition-colors hover:border-white/20"
+                  className="inline-flex w-full items-center justify-center gap-2 border border-white/10 bg-white/[0.02] px-4 py-3 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-zinc-100 transition-colors hover:border-white/20 sm:w-auto sm:px-5 sm:tracking-[0.2em]"
                 >
                   <GitBranch className="h-4 w-4" />
                   GitHub
                 </a>
                 <a
                   href={profile.resumeHref}
-                  className="inline-flex items-center justify-center gap-2 border border-white/10 bg-white/[0.02] px-5 py-3 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-zinc-100 transition-colors hover:border-white/20"
+                  className="inline-flex w-full items-center justify-center gap-2 border border-white/10 bg-white/[0.02] px-4 py-3 font-mono text-[0.68rem] uppercase tracking-[0.14em] text-zinc-100 transition-colors hover:border-white/20 sm:w-auto sm:px-5 sm:tracking-[0.2em]"
                 >
                   <Download className="h-4 w-4" />
                   Download resume
@@ -98,7 +98,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.div {...reveal} className="lg:justify-self-end">
+            <motion.div {...reveal} className="min-w-0 lg:justify-self-end">
               <TerminalWindow />
             </motion.div>
           </div>
@@ -119,7 +119,7 @@ export default function Home() {
               (label) => (
                 <span
                   key={label}
-                  className="profile-pill rounded-full border px-3 py-2 font-mono text-[0.68rem] uppercase tracking-[0.22em]"
+                  className="profile-pill rounded-full border px-3 py-2 font-mono text-[0.65rem] uppercase tracking-[0.14em] sm:text-[0.68rem] sm:tracking-[0.22em]"
                 >
                   {label}
                 </span>
@@ -145,8 +145,8 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="profile-panel rounded border p-6">
-              <p className="font-mono text-[0.7rem] uppercase tracking-[0.28em] text-sky-300/80">
+            <div className="profile-panel rounded border p-5 sm:p-6">
+              <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-sky-300/80 sm:text-[0.7rem] sm:tracking-[0.28em]">
                 Engineering lens
               </p>
               <ul className="mt-5 space-y-4 text-sm leading-6">
@@ -242,16 +242,16 @@ export default function Home() {
             {skillGroups.map((group) => (
               <div
                 key={group.title}
-                className="rounded border border-white/10 bg-zinc-950/40 p-5"
+                className="min-w-0 rounded border border-white/10 bg-zinc-950/40 p-5"
               >
-                <p className="font-mono text-[0.62rem] uppercase tracking-[0.24em] text-sky-300/80">
+                <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-sky-300/80 sm:tracking-[0.24em]">
                   {group.title}
                 </p>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-full border border-white/10 bg-zinc-900 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.12em] text-zinc-200"
+                      className="rounded-full border border-white/10 bg-zinc-900 px-2.5 py-1 font-mono text-[0.62rem] uppercase tracking-[0.08em] text-zinc-200 sm:tracking-[0.12em]"
                     >
                       {item}
                     </li>
@@ -273,7 +273,7 @@ export default function Home() {
           />
 
           <div className="mt-10 rounded border border-white/10 bg-zinc-950/40 p-6 sm:p-8">
-            <h3 className="text-2xl font-semibold tracking-[-0.05em] text-zinc-50 sm:text-3xl">
+            <h3 className="text-xl font-semibold tracking-[-0.03em] text-zinc-50 sm:text-3xl sm:tracking-[-0.05em]">
               Adaptive Multi-Cloud Routing for Generative AI APIs using
               Latency-Throughput-Quality Optimization with Switching Overhead
               Awareness
@@ -330,7 +330,7 @@ export default function Home() {
             {achievements.map((item) => (
               <div
                 key={item}
-                className="rounded border border-white/10 bg-zinc-950/40 p-5 font-mono text-xs uppercase tracking-[0.16em] text-zinc-200"
+                className="rounded border border-white/10 bg-zinc-950/40 p-5 font-mono text-[0.68rem] uppercase tracking-[0.1em] text-zinc-200 sm:text-xs sm:tracking-[0.16em]"
               >
                 {item}
               </div>
@@ -349,14 +349,14 @@ export default function Home() {
           <div className="mt-10 rounded border border-white/10 bg-zinc-950/40 p-6 sm:p-8">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="font-mono text-[0.68rem] uppercase tracking-[0.28em] text-sky-300/80">
+                <p className="font-mono text-[0.65rem] uppercase tracking-[0.18em] text-sky-300/80 sm:text-[0.68rem] sm:tracking-[0.28em]">
                   2020 — 2024
                 </p>
-                <h3 className="mt-3 text-2xl font-semibold tracking-[-0.05em] text-zinc-50">
+                <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-zinc-50 sm:text-2xl sm:tracking-[-0.05em]">
                   G. H. Patel College of Engineering and Technology
                 </h3>
               </div>
-              <p className="font-mono text-sm uppercase tracking-[0.18em] text-zinc-400">
+              <p className="font-mono text-xs uppercase tracking-[0.12em] text-zinc-400 sm:text-sm sm:tracking-[0.18em]">
                 B.E. in Information Technology
               </p>
             </div>
@@ -405,7 +405,7 @@ export default function Home() {
 
           <div className="mt-10 grid gap-5 md:grid-cols-2">
             <div className="rounded border border-white/10 bg-zinc-950/40 p-5">
-              <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-sky-300/80">
+              <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-sky-300/80 sm:tracking-[0.22em]">
                 Nov 2023 — Dec 2023
               </p>
               <h3 className="mt-3 text-xl font-semibold text-zinc-50">
@@ -413,7 +413,7 @@ export default function Home() {
               </h3>
             </div>
             <div className="rounded border border-white/10 bg-zinc-950/40 p-5">
-              <p className="font-mono text-[0.62rem] uppercase tracking-[0.22em] text-sky-300/80">
+              <p className="font-mono text-[0.62rem] uppercase tracking-[0.14em] text-sky-300/80 sm:tracking-[0.22em]">
                 Jan 2022 — May 2022
               </p>
               <h3 className="mt-3 text-xl font-semibold text-zinc-50">
