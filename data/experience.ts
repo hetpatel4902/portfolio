@@ -50,7 +50,7 @@ export const experience: ExperienceEntry[] = [
         name: "BCCI",
         domain: "Sports Analytics",
         role: "Backend & Data Engineer",
-        technologies: ["Data Pipelines", "Redis", "REST APIs", "Analytics"],
+        technologies: ["Data Pipelines", "REST APIs", "Analytics"],
         whatBuilt:
           "Worked on data processing pipelines for stadium, merchandise, and ticketing data, flattening complex datasets into analytical models for faster access and reuse.",
         engineeringProblem:
