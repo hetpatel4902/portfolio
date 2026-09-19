@@ -23,16 +23,16 @@ export const experience: ExperienceEntry[] = [
       "Working across backend engineering, full-stack delivery, system architecture, data processing, and AI-driven enterprise solutions.",
     projects: [
       {
-        name: "DRDO",
+        name: "Confidential Government/Defense Project",
         domain: "Project & Material Management",
         role: "Technical Lead",
         technologies: ["Spring Boot", "Angular", "PostgreSQL", "REST APIs"],
         whatBuilt:
-          "Designed the application architecture, backend modules, and PostgreSQL database model for a project and material management platform built around WBS-driven planning and RACI-based execution.",
+          "Designed the application architecture, backend modules, and PostgreSQL database model for an enterprise project and material management platform supporting project planning, execution, and monitoring.",
         engineeringProblem:
-          "The platform needed to support role-based workflow orchestration, project tracking, and multi-user coordination across a complex planning lifecycle.",
+          "The platform needed to support role-based workflows, project tracking, and coordination across multiple users throughout a complex project lifecycle.",
         impact:
-          "Led a 15+ member frontend/backend team and delivered 55+ screens within three months, including dashboards for three personas and PERT, Gantt, and PBS visualizations.",
+          "Led a 15+ member frontend/backend engineering team and delivered 60+ screens within four months, driving technical task allocation, code reviews, frontend-backend integration, feature development, and delivery coordination.",
       },
       {
         name: "PETRONAS & Inland Waterways Authority of India",
