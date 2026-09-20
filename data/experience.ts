@@ -62,7 +62,7 @@ export const experience: ExperienceEntry[] = [
         name: "ICAI",
         domain: "Certification Workflow",
         role: "Integration Engineer",
-        technologies: ["Zoom API", "Workflow Integration", "REST APIs"],
+        technologies: ["Zoom API", "Spring Boot", "REST APIs"],
         whatBuilt:
           "Built and integrated a remote certification workflow using Zoom APIs to support a distributed, event-driven examination flow.",
         engineeringProblem:
